@@ -1,3 +1,4 @@
+import { Equipo } from "../entities/equipo.js";
 import { Insidencia } from "../entities/insidencia.js";
 
 const postInsidencia = async (
@@ -21,4 +22,15 @@ const postInsidencia = async (
   }
 };
 
-export { postInsidencia };
+const postEquipo = async (id_tipo_equipo, serial_equipo, id_sala) => {
+  const equipo = new Equipo();
+  equipo.id_tipo_equipo = id_tipo_equipo;
+  equipo.serial_equipo = serial_equipo;
+  equipo.id_sala = id_sala;
+  const query = await equipo.agregarEquipo();
+  if (query.affectedRows === 1) {
+    return "Equipo agregado con éxito";
+  }
+};
+
+export { postInsidencia, postEquipo };

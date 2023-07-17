@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { postInsidenciaController } from "../controllers/postDataCampus.js";
+import {
+  postInsidenciaController,
+  postEquipoController,
+} from "../controllers/postDataCampus.js";
 import { postInsidenciaDTO } from "./DTO/postDTO.js";
 const postInitRoute = () => {
   const router = Router();
@@ -8,6 +11,7 @@ const postInitRoute = () => {
     postInsidenciaDTO,
     postInsidenciaController
   );
+  router.post("/agregarEquipo", postEquipoController);
   return router;
 };
 
