@@ -4,7 +4,7 @@ import {
   postEquipoController,
   postTrainerController,
 } from "../controllers/postDataCampus.js";
-import { postInsidenciaDTO } from "./DTO/postDTO.js";
+import { postInsidenciaDTO, postEquipoDTO } from "./DTO/postDTO.js";
 const postInitRoute = () => {
   const router = Router();
   router.post(
@@ -12,7 +12,7 @@ const postInitRoute = () => {
     postInsidenciaDTO,
     postInsidenciaController
   );
-  router.post("/agregarEquipo", postEquipoController);
+  router.post("/agregarEquipo", postEquipoDTO, postEquipoController);
   router.post("/agregarTrainer", postTrainerController);
   return router;
 };
