@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   postInsidenciaController,
   postEquipoController,
+  postTrainerController,
 } from "../controllers/postDataCampus.js";
 import { postInsidenciaDTO } from "./DTO/postDTO.js";
 const postInitRoute = () => {
@@ -12,6 +13,7 @@ const postInitRoute = () => {
     postInsidenciaController
   );
   router.post("/agregarEquipo", postEquipoController);
+  router.post("/agregarTrainer", postTrainerController);
   return router;
 };
 

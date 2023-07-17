@@ -1,4 +1,8 @@
-import { postEquipo, postInsidencia } from "../services/postServices.js";
+import {
+  postEquipo,
+  postInsidencia,
+  postTrainer,
+} from "../services/postServices.js";
 
 const postInsidenciaController = async (req, res, next) => {
   try {
@@ -33,4 +37,34 @@ const postEquipoController = async (req, res, next) => {
   }
 };
 
-export { postInsidenciaController, postEquipoController };
+const postTrainerController = async (req, res, next) => {
+  try {
+    const {
+      nombre,
+      emailPersonal,
+      emailCorporativo,
+      telefonoMovil,
+      telfonoResidencia,
+      telefonoEmpresa,
+      telefonoMovilEmpresa,
+    } = req.body;
+    const result = await postTrainer(
+      nombre,
+      emailPersonal,
+      emailCorporativo,
+      telefonoMovil,
+      telfonoResidencia,
+      telefonoEmpresa,
+      telefonoMovilEmpresa
+    );
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export {
+  postInsidenciaController,
+  postEquipoController,
+  postTrainerController,
+};
